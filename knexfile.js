@@ -1,14 +1,14 @@
 // no need to change this file
 const sharedConfig = {
   client: 'sqlite3',
-  useNullAsDefault: true,
+  useNullAsDefault: true, //necessary for sqlite, not for postgresql
   migrations: {
     directory: './data/migrations',
   },
   seeds: {
     directory: './data/seeds',
   },
-  pool: {
+  pool: { //for sqlite
     afterCreate: (conn, done) => {
       conn.run('PRAGMA foreign_keys = ON', done)
     },
