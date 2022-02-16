@@ -1,5 +1,11 @@
 const Cars = require('./cars-model');
 const router = require('express').Router();
+const { 
+    checkCarId, 
+    checkCarPayload, 
+    checkVinNumberValid, 
+    checkVinNumberUnique 
+} = require('./cars-middleware');
 
 // get cars
 router.get('/', async (req, res, next) => {
@@ -12,8 +18,8 @@ router.get('/', async (req, res, next) => {
 });
 
 // get car by id
-router.get('/', (req, res, next) => {
-
+router.get('/:id', checkCarId, async (req, res, next) => {
+    res.json(req.car);
 })
 
 // create car (&return new car)
