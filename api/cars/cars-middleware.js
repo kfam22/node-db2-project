@@ -1,4 +1,5 @@
 const Cars = require('./cars-model');
+const yup = require('yup');
 
 const checkCarId = async (req, res, next) => {
   console.log('checking car id...')
@@ -15,16 +16,32 @@ const checkCarId = async (req, res, next) => {
   }
 }
 
+
 const checkCarPayload = (req, res, next) => {
   console.log('checking car payload...')
+  if(!req.body.vin) return next({
+    status: 400, message: 'vin is missing'
+  })
+  if(!req.body.make) return next({
+    status: 400, message: 'make is missing'
+  })
+  if(!req.body.model) return next({
+    status: 400, message: 'model is missing'
+  })
+  if(!req.body.mileage) return next({
+    status: 400, message: 'mileage is missing'
+  })
+  next()
 }
 
-const checkVinNumberValid = (req, res, next) => {
+const checkVinNumberValid = async (req, res, next) => {
   console.log('validating vin number...')
+  next()
 }
 
-const checkVinNumberUnique = (req, res, next) => {
+const checkVinNumberUnique = async (req, res, next) => {
   console.log('checking vin number uniqueness...')
+  next()
 }
 
 module.exports = {
