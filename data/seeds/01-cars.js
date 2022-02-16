@@ -7,17 +7,17 @@ const cars = [
         mileage: 4000,
         title: 'like new bmw x5',
         transmission: 'automatic',
-    }
+    },
     {
-        vin: '1111111111111',
+        vin: '2222222222222',
         make: 'mercedes',
         model: 'g 550',
         mileage: 16000,
         title: 'classic g-wagon',
         transmission: 'automatic',
-    }
+    },
     {
-        vin: '1111111111111',
+        vin: '3333333333333',
         make: 'tesla',
         model: 'model x',
         mileage: 41000,
